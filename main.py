@@ -38,6 +38,11 @@ def main():
             if player.collision_detection(asteroid):
                 print("Game over!")
                 sys.exit()
+            for bullet in shots:
+                if bullet.collision_detection(asteroid):
+                    asteroid.kill()
+                    bullet.kill()
+
         for drawable in drawable_group:
             drawable.draw(screen)
         pygame.display.flip()
